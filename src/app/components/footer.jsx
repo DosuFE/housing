@@ -32,7 +32,7 @@ export default function Footer() {
         </div>
 
         {/* Quick Links & Contact Info Group */}
-        <div className="col-span-full md:col-span-2 lg:col-span-2 grid grid-cols-2 gap-x-8">
+        <div className=" md:col-span-2 lg:col-span-2 grid grid-cols-2 md:gap-x-8">
           {/* Quick Links */}
           <div>
             <h4 className="text-xl font-semibold text-white mb-5">Quick Links</h4>

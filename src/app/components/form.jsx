@@ -30,7 +30,7 @@ export default function Form() {
     };
 
     return(
-        <section className="py-12 px-4 max-w-lg mx-auto">
+        <section className="py-12 px-4 max-w-lg mx-auto w-full">
             <form onSubmit={handleSubmit} className="bg-black/50 gap-y-4 py-7 px-5 rounded-xl flex flex-col items-center justify-center">
                 {/* FULL NAME */}
                 <input 
@@ -43,7 +43,7 @@ export default function Form() {
                     className="text-white text-lg leading-10
                     bg-white/20 py-1 px-3 placeholder:text-white 
                     placeholder:opacity-70 
-                    w-[400px] outline-none active:outline-none focus:outline-none
+                    w-full outline-none active:outline-none focus:outline-none
                     cursor-pointer"
                 />
                 {/* EMAIL */}
@@ -57,7 +57,7 @@ export default function Form() {
                     className="text-white text-lg leading-10
                     bg-white/20 py-1 px-3 placeholder:text-white 
                     placeholder:opacity-70 
-                    w-[400px] outline-none active:outline-none focus:outline-none
+                    w-full outline-none active:outline-none focus:outline-none
                     cursor-pointer"
                 />
                 {/* SUBJECT */}
@@ -71,7 +71,7 @@ export default function Form() {
                     className="text-white text-lg leading-10
                     bg-white/20 py-1 px-3 placeholder:text-white 
                     placeholder:opacity-70 
-                    w-[400px] outline-none active:outline-none focus:outline-none
+                    w-full outline-none active:outline-none focus:outline-none
                     cursor-pointer"
                 />
                 {/* TEXTAREA */}
@@ -85,14 +85,14 @@ export default function Form() {
                     className="text-white text-lg leading-10
                     bg-white/20 py-1 px-3 placeholder:text-white 
                     placeholder:opacity-70 
-                    w-[400px] outline-none active:outline-none focus:outline-none
+                    w-full outline-none active:outline-none focus:outline-none
                     cursor-pointer"
                 />
                 {/* SUBMIT */}
                 <button type="submit"
                  className="bg-transparent border-2 border-white text-white text-lg leading-12
                  py-2 px-4 hover:bg-white/20 transition-colors duration-300
-                 w-[400px] cursor-pointer active:scale-95 focus:outline-none focus:ring-2 focus:ring-white/50
+                 w-full cursor-pointer active:scale-95 focus:outline-none focus:ring-2 focus:ring-white/50
                 ">
                     SUBMIT
                 </button>
