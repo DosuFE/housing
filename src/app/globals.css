@@ -251,6 +251,34 @@
   box-shadow: 0 2px 8px 0 rgba(0,0,0,0.10);
 }
 
+@keyframes spin-reverse {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    text-shadow: 0 0 5px rgba(255,255,255,0.5), 0 0 10px rgba(255,255,255,0.3);
+  }
+  50% {
+    text-shadow: 0 0 10px rgba(255,255,255,0.8), 0 0 20px rgba(255,255,255,0.6);
+  }
+}
+
+/* Apply animations to Tailwind classes */
+@layer utilities {
+  .animate-spin-reverse {
+    animation: spin-reverse 1.5s linear infinite;
+  }
+  .animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+}
+
 /* Blog Card 3D Animation and Estate Theme */
 .blog-card {
   transition: box-shadow 0.3s, transform 0.3s;

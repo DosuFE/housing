@@ -1,6 +1,7 @@
 'use client'
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
+import { motion } from 'framer-motion'; // Import motion
 
 const TABS = [
   { label: 'ALL', value: 'ALL' },
@@ -16,6 +17,22 @@ const LIMITS = {
   Villa: 3,
   Apartment: 5,
   Office: 3,
+};
+
+// Animation variants for staggered appearance
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: { 
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1, // Delay between each child animation
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0 },
 };
 
 const TabMenu = () => {
@@ -47,7 +64,7 @@ const TabMenu = () => {
   return (
     <div className="w-full max-w-7xl mx-auto px-4 py-8">
       {/* Tab Menu */}
-      <div className="flex flex-wrap gap-2 sm:gap-3 mb-8 justify-center">
+      <div className="flex flex-wrap gap-3 mb-8 justify-center">
         {TABS.map((tab) => (
           <button
             key={tab.value}
@@ -62,29 +79,35 @@ const TabMenu = () => {
         ))}
       </div>
 
-      {/* Property Images Grid */}
-      <article className="grid grid-cols-1 gap-4 sm:gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 ">
+      {/* Property Images Grid with Animation */}
+      <motion.div
+        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6"
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+      >
         {filteredProperties.map((property) => (
-          <div
+          <motion.div
             key={property.id}
+            variants={itemVariants}
             className="bg-white rounded-xl shadow hover:shadow-lg border border-gray-100 cursor-pointer transition-all overflow-hidden flex flex-col"
             onClick={() => router.push(`/properties/${property.id}`)}
           >
             <img
               src={property.image}
               alt={property.label}
-              className="w-full h-72 md:h-64 object-cover"
+              className="w-full h-48 object-cover"
             />
-            <div className="pl-4 py-5 flex-1 flex flex-col justify-between">
-              <div className='tracking-wider space-y-3'>
-                <h3 className="text-lg font-semibold text-gray-800">{property.label}</h3>
-                <p className="text-blue-600 font-semibold text-base">{property.price}</p>
-                <p className="text-gray-500 text-sm hover:text-sky-600">{property.address}</p>
+            <div className="p-4 flex-1 flex flex-col justify-between">
+              <div>
+                <h3 className="text-lg font-semibold mb-1 text-gray-800">{property.label}</h3>
+                <p className="text-blue-600 font-bold text-base mb-1">{property.price}</p>
+                <p className="text-gray-500 text-sm mb-2">{property.address}</p>
               </div>
             </div>
-          </div>
+          </motion.div>
         ))}
-      </article>
+      </motion.div>
     </div>
   );
 };

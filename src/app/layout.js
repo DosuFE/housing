@@ -1,6 +1,9 @@
+
 import Navbar from "./components/nav";
 import "./globals.css";
 import Footer from "./components/footer";
+import Preloader from "./components/preloader";
+import PageTransition from "./components/pageTransition"; 
 
 export const metadata = {
   title: "ESTATE - HOUSING",
@@ -8,12 +11,16 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+
   return (
     <html lang="en">
       <body>
-        <Navbar/>
-        {children}
-        <Footer/>
+        <Preloader/>
+        <PageTransition> {/* Wrap children with PageTransition */}
+          <Navbar/>
+            {children}
+          <Footer/>
+        </PageTransition>
       </body>
     </html>
   );
